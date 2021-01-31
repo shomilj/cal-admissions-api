@@ -2,6 +2,10 @@
 
 This is an API endpoint to the Cal Admissions dataset, designed for research purposes! 
 
+### Endpoint
+
+For access to the live API endpoint, please contact Shomil (via Berkeley email). 
+
 ### Columns
 ##### department
 

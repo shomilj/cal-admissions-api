@@ -17,6 +17,9 @@ def api(request):
 
     if request_json and 'columns' in request_json and 'filters' in request_json:
         columns, filters = request_json['columns'], request_json['filters']
-        return escape(query(columns, filters).to_csv())
+        try:
+            return escape(query(columns, filters).to_csv())
+        except Exception as e:
+            return 'error:' + str(e)
     else:
-        return escape('error')
+        return escape('error: missing parameters')

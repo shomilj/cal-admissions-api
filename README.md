@@ -10,22 +10,7 @@ For access to the live API endpoint, please contact Shomil (via Berkeley email).
 
 To query data, make a POST Request to the endpoint with a JSON body containing `filters` and `columns` that specify your query. The endpoint will return a table in CSV, which can then be read into Pandas.
 
-```python
-import requests, io
-import pandas as pd
-
-content = requests.post('[ENDPOINT_URL]', json={
-    'filters': {
-        'year': ['2020-21'],
-        'major': ['Electrical Eng & Comp Sci'],
-    },
-    'columns': ['ethnicity_2']
-}).text
-
-pd.read_csv(io.StringIO(content), index_col=0).sort_values('admit_rate')
-```
-
-
+![screenshot](screenshot.png)
 
 ### Columns
 

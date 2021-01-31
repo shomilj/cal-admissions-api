@@ -1,7 +1,8 @@
 from flask import escape, jsonify
 from utils import query
 
-def hello_http(request):
+# gcloud functions deploy api --runtime python38 --trigger-http --allow-unauthenticated
+def api(request):
     """HTTP Cloud Function.
     Args:
         request (flask.Request): The request object.
@@ -15,6 +16,6 @@ def hello_http(request):
 
     if request_json and 'columns' in request_json and 'filters' in request_json:
         columns, filters = request_json['columns'], request_json['filters']
-        return jsonify(query(columns, filters).to_csv())
+        return escape(query(columns, filters).to_csv())
     else:
-        return jsonify({'error': 'unknown'})
+        return escape('error')

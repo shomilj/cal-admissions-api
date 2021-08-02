@@ -2,6 +2,8 @@
 
 This is an API endpoint to the Cal Admissions dataset, designed for research purposes! 
 
+**NOTE: Due to high cardinality fields causing massive expansion of the number of rows returned by Cal Answers (along with their maximum export size limit), 2021-22 data only includes rows for EECS & CS students at this time.**
+
 ### Endpoint
 
 For access to the live API endpoint, please contact Shomil (via Berkeley email). 

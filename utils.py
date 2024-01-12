@@ -1,14 +1,12 @@
 import pandas as pd
 
 def load():
-    df = pd.read_csv('preprocessed.csv', index_col=0)
+    df = pd.read_csv('/preprocessed.csv', index_col=0)
     drop_cols = ["('Applied')", "('Admitted')", "('SIRed')"]
     applied = df[~pd.isna(df["('Applied')"])].drop(columns=drop_cols)
     admitted = df[~pd.isna(df["('Admitted')"])].drop(columns=drop_cols)
     committed = df[~pd.isna(df["('SIRed')"])].drop(columns=drop_cols)
     return applied, admitted, committed
-
-applied, admitted, committed = load()
 
 def group(data, categories):
     filtered = data.copy()
@@ -45,7 +43,8 @@ def query(cols, filters={}):
         'major': ['Computer Science']]
     ]
     """
-    
+    applied, admitted, committed = load()
+
     dss = [applied, admitted, committed]
     results = []
     for ds in dss:
